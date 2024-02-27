@@ -19,6 +19,7 @@ const Answer: FC<{ answers: { [key in string]: string } }> = ({ answers }) => {
   const postText = `旧国名読みテスト 正解率 ${
     passRate / 0.1 === 0 ? "" : "約"
   }${passRate.toFixed(1)}%`;
+  const clipboardText = `${postText} #旧国名読みテスト https://quiz.seven-units.net`;
 
   return (
     <div>
@@ -63,16 +64,14 @@ const Answer: FC<{ answers: { [key in string]: string } }> = ({ answers }) => {
       <h2>SNSにシェア</h2>
       <div class={css`display: flex; flex-direction: column; gap: 1rem`}>
         <TwitterShareButton text={postText} />
-        <input type="text" value={`${postText} #旧国名読みテスト`} />
+        <input type="text" value={clipboardText} />
         <button
           type="button"
           onClick={() =>
-            navigator.clipboard
-              .writeText(`${postText} #旧国名読みテスト`)
-              .then(() => {
-                setCopySuccess(true);
-                setTimeout(() => setCopySuccess(false), 2000);
-              })
+            navigator.clipboard.writeText(clipboardText).then(() => {
+              setCopySuccess(true);
+              setTimeout(() => setCopySuccess(false), 2000);
+            })
           }
         >
           本文をコピー

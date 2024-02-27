@@ -14,6 +14,6 @@
     }
   },
   "files": {
-    "ignore": [".wrangler"]
+    "ignore": [".wrangler", "dist"]
   }
 }
