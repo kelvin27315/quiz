@@ -104,9 +104,6 @@ export default function OldProvinceQuiz() {
       <button type="button" onClick={() => setIsAnswering(false)}>
         回答終了
       </button>
-      <button type="button" onClick={() => setIsAnswering(true)}>
-        回答状態に戻す
-      </button>
       {!isAnswering && <Answer answers={answers} />}
     </div>
   );
