@@ -22,3 +22,6 @@ jobs:
 
       - name: Check lint & format
         run: bun run check
+
+      - name: build
+        run: bun run build
