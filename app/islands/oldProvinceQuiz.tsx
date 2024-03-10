@@ -3,7 +3,7 @@ import { useState } from "hono/jsx";
 import type { FC } from "hono/jsx";
 import { AnswerField } from "../components/answerField";
 import { TwitterShareButton } from "../components/twitterShareButton";
-import { OldProvince, oldProvinces } from "../data/data";
+import { type OldProvince, oldProvinces } from "../data/data";
 
 const Answer: FC<{ answers: { [key in string]: string } }> = ({ answers }) => {
   const [copySuccess, setCopySuccess] = useState<boolean>(false);

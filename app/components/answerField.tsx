@@ -1,6 +1,6 @@
 import { css } from "hono/css";
 import { type FC, useState } from "hono/jsx";
-import { OldProvince } from "../data/data";
+import type { OldProvince } from "../data/data";
 
 export const AnswerField: FC<{
   index: number;
