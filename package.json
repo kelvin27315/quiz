@@ -4,7 +4,6 @@
     "dev": "vite",
     "build": "vite build --mode client && vite build",
     "preview": "wrangler pages dev ./dist",
-    "deploy": "$npm_execpath run build && wrangler pages deploy ./dist --project-name $PROJECT_NAME",
     "check": "biome check ./",
     "fix": "biome check --apply ./"
   },
