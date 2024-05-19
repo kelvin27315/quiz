@@ -1,5 +1,5 @@
 import { css } from "hono/css";
-import { useState } from "hono/jsx";
+import { Fragment, useState } from "hono/jsx";
 import type { FC } from "hono/jsx";
 import { AnswerField } from "../components/answerField";
 import { TwitterShareButton } from "../components/twitterShareButton";
@@ -49,15 +49,17 @@ const Answer: FC<{ answers: { [key in string]: string } }> = ({ answers }) => {
               acc[acc.length - 1].push(curr);
               return acc;
             }, [] as OldProvince[][])
-            .map((group) => (
-              <tr>
-                {group.map((province) => (
-                  <>
-                    <td>{province.kanji}</td>
-                    <td>{answers[province.kanji]}</td>
-                  </>
-                ))}
-              </tr>
+            .map((group, i) => (
+              <Fragment key={`${i}-group-${group[0].kanji}`}>
+                <tr>
+                  {group.map((province) => (
+                    <Fragment key={province.kanji}>
+                      <td>{province.kanji}</td>
+                      <td>{answers[province.kanji]}</td>
+                    </Fragment>
+                  ))}
+                </tr>
+              </Fragment>
             ))}
         </tbody>
       </table>
@@ -93,12 +95,14 @@ export default function OldProvinceQuiz() {
   return (
     <div>
       {oldProvinces.map((oldProvince, i) => (
-        <AnswerField
-          index={i}
-          oldProvince={oldProvince}
-          isAnswering={isAnswering}
-          onAnswerChange={handleAnswerChange}
-        />
+        <Fragment key={oldProvince.kanji}>
+          <AnswerField
+            index={i}
+            oldProvince={oldProvince}
+            isAnswering={isAnswering}
+            onAnswerChange={handleAnswerChange}
+          />
+        </Fragment>
       ))}
       <button type="button" onClick={() => setIsAnswering(false)}>
         回答終了
