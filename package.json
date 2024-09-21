@@ -5,7 +5,7 @@
     "build": "vite build --mode client && vite build",
     "preview": "wrangler pages dev ./dist",
     "check": "biome check ./",
-    "fix": "biome check --apply ./"
+    "fix": "biome check --write ./"
   },
   "private": true,
   "dependencies": {
