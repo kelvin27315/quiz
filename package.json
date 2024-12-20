@@ -16,7 +16,7 @@
     "@biomejs/biome": "1.9.4",
     "@cloudflare/workers-types": "4.20241218.0",
     "@hono/vite-cloudflare-pages": "0.4.2",
-    "vite": "5.4.11",
+    "vite": "6.0.5",
     "wrangler": "3.99.0"
   }
 }
