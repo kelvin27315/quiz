@@ -17,6 +17,6 @@
     "@cloudflare/workers-types": "4.20250821.0",
     "@hono/vite-cloudflare-pages": "0.4.2",
     "vite": "5.4.19",
-    "wrangler": "4.31.0"
+    "wrangler": "4.32.0"
   }
 }
